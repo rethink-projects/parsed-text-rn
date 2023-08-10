@@ -10,7 +10,7 @@ interface ParsedTextProps extends TextProps {
   childrenProps?: TextProps;
 }
 
-const ParsedText: React.FC<ParsedTextProps> = ({
+export const ParsedText: React.FC<ParsedTextProps> = ({
   parse = [],
   childrenProps = [],
   style,
@@ -63,5 +63,3 @@ const ParsedText: React.FC<ParsedTextProps> = ({
     </Text>
   );
 };
-
-export default ParsedText;

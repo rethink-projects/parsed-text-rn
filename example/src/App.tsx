@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
-import ParsedText from 'parsed-text-rn';
+import { ParsedText, squareBracketsPattern } from 'parsed-text-rn';
 
 export default function App() {
   const text = 'Hello world!';
@@ -9,13 +9,12 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <ParsedText>{text}</ParsedText>
+      <ParsedText style={styles.marginBottom}>{text}</ParsedText>
+
       <ParsedText
         parse={[
           {
-            pattern: /\[(.*?)\]/,
-            renderText: (matchingString: string) =>
-              matchingString.replace(/\[/g, '').replace(/]/g, ''),
+            ...squareBracketsPattern,
             style: styles.boldText,
           },
         ]}
@@ -39,5 +38,8 @@ const styles = StyleSheet.create({
   },
   boldText: {
     fontWeight: '700',
+  },
+  marginBottom: {
+    marginBottom: 30,
   },
 });
