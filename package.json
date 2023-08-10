@@ -41,7 +41,6 @@
     "android"
   ],
   "repository": "https://github.com/rethink-projects/parsed-text-rn",
-  "author": "Pedro Borges <pedro.borges@rethink.dev> (https://github.com/rethink-pedroborges)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/rethink-projects/parsed-text-rn/issues"

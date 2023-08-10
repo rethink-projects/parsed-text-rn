@@ -1,18 +1,27 @@
-import * as React from 'react';
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
 
-import { StyleSheet, View, Text } from 'react-native';
-import { multiply } from 'parsed-text-rn';
+import ParsedText from 'parsed-text-rn';
 
 export default function App() {
-  const [result, setResult] = React.useState<number | undefined>();
-
-  React.useEffect(() => {
-    multiply(3, 7).then(setResult);
-  }, []);
+  const text = 'Hello world!';
+  const boldText = '[Hello world!]';
 
   return (
     <View style={styles.container}>
-      <Text>Result: {result}</Text>
+      <ParsedText>{text}</ParsedText>
+      <ParsedText
+        parse={[
+          {
+            pattern: /\[(.*?)\]/,
+            renderText: (matchingString: string) =>
+              matchingString.replace(/\[/g, '').replace(/]/g, ''),
+            style: styles.boldText,
+          },
+        ]}
+      >
+        {boldText}
+      </ParsedText>
     </View>
   );
 }
@@ -27,5 +36,8 @@ const styles = StyleSheet.create({
     width: 60,
     height: 60,
     marginVertical: 20,
+  },
+  boldText: {
+    fontWeight: '700',
   },
 });
