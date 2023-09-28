@@ -44,12 +44,12 @@ export const ParsedText: React.FC<ParsedTextProps> = ({
     });
 
     return textExtraction?.parse().map((props, index) => {
-      const { style: parentStyle, ...extractionRest } = props;
+      const { style: extractedTextStyle, ...extractionRest } = props;
 
       return (
         <Text
           key={`parsedText-${index}`}
-          style={[parentStyle, style]}
+          style={[style, extractedTextStyle]}
           {...childrenProps}
           {...extractionRest}
         />
