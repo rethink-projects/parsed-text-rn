@@ -1,6 +1,6 @@
 {
   "name": "parsed-text-rn",
-  "version": "1.0.0",
+  "version": "0.1.1",
   "description": "React Native library to style texts based on parse patterns provided",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
